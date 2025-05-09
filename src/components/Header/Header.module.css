@@ -1,0 +1,140 @@
+.header {
+    background-color: #111111;
+    width: 100%;
+    color: #fff;
+    padding: 1.5rem 5rem;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav a.active {
+    color: #00bcd4;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav a:hover {
+    color: #00bcd4;
+}
+
+.nav a::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 4px;
+    top: 100%;
+    left: 0;
+    background-color: #00bcd4;
+    box-shadow: 0 0 5px #fff;
+    transition: 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
+
+.bar,
+.bar::before,
+.bar::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+
+.bar {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bar::before {
+    top: -10px;
+}
+
+.bar::after {
+    top: 10px;
+}
+
+.bar.active {
+    background: transparent;
+}
+
+.bar.active::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.bar.active::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #111;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 2rem;
+        display: none;
+        z-index: 1000; 
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 0.5rem 0;
+        text-align: left; 
+    }
+
+    .nav a:hover::after {
+        width: 20%;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 1100; 
+    }
+}
