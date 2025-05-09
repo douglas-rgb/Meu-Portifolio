@@ -1,15 +1,19 @@
 {
   "name": "douglas-tecch",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
+  "homepage": "https://douglas-rgb.github.io/Meu-Portifolio",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "deploy": "gh-pages -d dist",
+    "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0"
